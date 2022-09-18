@@ -11,7 +11,7 @@
 	<groupId>com.sample</groupId>
 	<artifactId>auth-sample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>auth-sample</name>
 	<description>auth-sample</description>
 	<properties>
