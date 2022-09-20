@@ -1,24 +1,31 @@
 package com.sample.authsample.controller;
 
-import com.nimbusds.jose.proc.SecurityContext;
+import com.sample.authsample.dto.SampleDTO;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+@PreAuthorize("isAuthenticated()")
 @RestController
 @RequestMapping("api/sample")
 public class SampleController {
 
-    @PreAuthorize("hasAuthority('ROLE_SAMPLE_VIEWER')")
-    @GetMapping
+    //@PreAuthorize("hasAuthority('ROLE_SAMPLE_VIEWER')")
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public void sample() {
+    public ResponseEntity<SampleDTO> sample() {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Jwt jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getCredentials();
 
-        System.out.println("Sample");
+        SampleDTO sampleDTO = new SampleDTO();
+        sampleDTO.setId(jwt.getId());
+        sampleDTO.setAutheticated(true);
+
+        return ResponseEntity.ok(sampleDTO);
     }
 
     @PreAuthorize("hasAuthority('ROLE_SAMPLE_CREATER')")
