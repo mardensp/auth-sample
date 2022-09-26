@@ -14,7 +14,7 @@ spring:
         registration:
           keycloak:
             client-id: sample-app
-            client-secret: kLhOhTr9f4j1cxYQNHkj2JpLFeE4iT4q
+            client-secret: RTLs298vEqVuYZo5Lgk8FjOXGqCXUMSx
       resourceserver:
         jwt:
           issuer-uri: https://keycloak-mardensp-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com/realms/sample-realm
