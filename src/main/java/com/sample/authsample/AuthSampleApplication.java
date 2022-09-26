@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AuthSampleApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Trigger hook");
+		System.out.println("Trigger hook!!!");
 		
 		SpringApplication.run(AuthSampleApplication.class, args);
 	}
